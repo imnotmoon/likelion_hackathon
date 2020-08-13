@@ -1,0 +1,17 @@
+<h1>항공대 중고방</h1>
+<div class="">
+    항공대 중고장터
+</div>
+<div class="">
+    항공대 방방방
+</div>
+{% if user.is_authenticated %}
+    <h2>{{user.username}}님 만나서 반갑습니다!</h2>
+    <h3>(항공대를 위한 중고나라 와 자취방을 볼 수 있는 사이트 입니다.)</h3>
+   <a href="{% url 'logout' %}"><button>로그아웃</button></a>
+{% else %}
+    <a href="{% url 'login' %}"><button>로그인</button></a>
+    <br>
+    <br>
+    <a href="{% url 'signup' %}"><button>회원가입</button></a>
+{% endif %}

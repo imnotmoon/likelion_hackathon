@@ -1,0 +1,27 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}" type="text/css">
+</head>
+<body>
+    <form class="form-signin">
+        <h1 class="h3 mb-3 font-weight-normal">회원가입</h1>
+        {% if error %}
+        <h3>{{error}}</h3>
+        <br>
+        {% endif %}
+        <form action="{%url 'signup'%}" method="POST" class='form-first'>
+            {% csrf_token %}
+            <label for="inputUsername" class="sr-only">유저이름</label>
+            <br>
+            <input type="text" name="username"id="inputUsername" class="form-control" placeholder="유저이름" required autofocus>
+            <br>
+            <label for="inputPassword" class="sr-only">비밀번호:</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="비밀번호" requiredname="password">
+            <br>
+            <label for="inputPassword" class="sr-only">비밀번호 확인:</label>
+            <input type="password"id="inputPassword" class="form-control" placeholder="비밀번호확인" required name="passwordconfig">
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">회원가입</button>
+        </form>    
+    </form>
+</body>
