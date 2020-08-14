@@ -10,17 +10,18 @@ class Bang(models.Model) :
     pub_date = models.DateTimeField('date published')
     body = models.TextField()
     roomtype = models.IntegerField()
+    posision = models.CharField(max_length=300, null=False, default="")
     cost = models.TextField()
-    image = models.ImageField(blank=True, upload_to="images", null=True)
+    images = models.ImageField(blank=True, upload_to="images", null=True)
     image2 = models.ImageField(blank=True, upload_to="images2", null=True)
     image3 = models.ImageField(blank=True, upload_to="images3", null=True)
     image_thumbnail = ImageSpecField(source='images', processors=[ResizeToFill(120, 80)], format='JPEG')
 
-    if image.width_field == 0:
+    if images.width_field == 0:
         pass
 
     def thumbnail(self):
-        return self.image
+        return self.images
 
     def __str__(self):
         return self.title
