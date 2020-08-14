@@ -3,24 +3,42 @@
     <link rel="stylesheet" href="{% static 'css/signup.css' %}" type="text/css">
 </head>
 <body>
-    <div> 
+    <div> <br>
         <h1>회원가입</h1>
+        <br>
         <form action="{% url 'signup' %}" method="POST">
             {% csrf_token %}
-            아이디:
+            <div class='menus'>아이디</div> 
+            <input type="text" name='username' class="input-class">
             <br>
-            <input type="text" name='username'>
             <br>
-            학번:
+            <div class='menus'>학번</div> 
+            <input type="text" name='ssd' class="input-class">
             <br>
-            <input type="text" name='ssd'>
             <br>
+<<<<<<< HEAD
+            <div class='menus'>이름</div> 
+            <input type="text" name='fullname'class="input-class">
+=======
             이름:
             <input type="text" name='fullname'>
+>>>>>>> 2d903595c1ef2d1fb2673b70884a63e7832b30ec
             <br>
-            비밀번호:
-            <input type="password" name='password'>
             <br>
+<<<<<<< HEAD
+            <div class='menus'>비밀번호</div> 
+            <input type="password" name='password'class="input-class">
+            <br>
+            <br>
+            <div class='menus'>비밀번호 확인</div> 
+            <input type="password" name='passwordconfig'class="input-class">
+            <br><br><br>
+            <a href="{% url 'home' %}"><button class='btn-center'>돌아가기</button></a>
+            <input type="submit" class="btn2" value='회원가입'>
+        </form>
+    </div>   
+    </form>
+=======
             비밀번호 확인:
             <input type="password" name='passwordconfig'>
             <br><br>
@@ -31,4 +49,5 @@
 
     
 
+>>>>>>> 2d903595c1ef2d1fb2673b70884a63e7832b30ec
 </body>
