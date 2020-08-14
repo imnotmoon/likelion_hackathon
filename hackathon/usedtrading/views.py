@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render,redirect,get_object_or_404
 from django.utils import timezone
 from django.contrib import messages
 from .models import Usedtrading
@@ -45,7 +45,7 @@ def create(request):
         usedtrading.save()
         #알림메세지 추가
         messages.success(request, 'Success to Upload')
-        return redirect('/usedtrading/usedhome/'+str(usedtrading.id))
+        return redirect('/usedtrading/usedhome/')
 
 def useddelete(request,usedtrading_id):
     Usedtrading.objects.get(id=usedtrading_id).delete()
@@ -68,13 +68,9 @@ def usedupdate(request, usedtrading_id):
             usedtrading.images = form.cleaned_data['images']
             usedtrading.image2 = form.cleaned_data['image2']
             usedtrading.image3 = form.cleaned_data['image3']
-            usedtrading.images = request.FILES['images']
-            usedtrading.image2 = request.FILES['image2']
-            usedtrading.image3 = request.FILES['image3']
-            
             usedtrading.pub_date = timezone.datetime.now()
             usedtrading.save()#DB에 반영하기
-            return redirect('/usedtrading/usedhome/'+str(usedtrading.id))
+            return redirect('/usedtrading/usedhome/')
     else:
         form = UsedtradingUpdate(instance = usedtrading)
         return render(request,'usedupdate.html',{'form':form})
