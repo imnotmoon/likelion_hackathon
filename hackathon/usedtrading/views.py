@@ -4,6 +4,8 @@ from django.contrib import messages
 from .models import Usedtrading
 from .forms import UsedtradingUpdate
 from django.core.paginator import Paginator
+from django.contrib.auth.models import User
+from django.contrib import auth
 # Create your views here.
 def usedhome(request):
     usedtrading = Usedtrading.objects
@@ -68,6 +70,8 @@ def usedupdate(request, usedtrading_id):
             usedtrading.images = form.cleaned_data['images']
             usedtrading.image2 = form.cleaned_data['image2']
             usedtrading.image3 = form.cleaned_data['image3']
+            usedtrading.images = request.FILES['images']
+            
             usedtrading.pub_date = timezone.datetime.now()
             usedtrading.save()#DB에 반영하기
             return redirect('/usedtrading/usedhome/')
