@@ -76,12 +76,13 @@
                     {% else %}
                       <img src="" alt="" class="img-thumb">
                     {% endif %}
-                    <p class="card-text"><strong>{{ item.title }}</strong></p>
+                    <p class="card-text"><strong><a href="{% url 'useddetail' forloop.revcounter %}">{{ item.title }}</a></strong></p>
                     <p class="card-text-body">{{ item.body }}</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                        <p class="card-text">{{ item.cost }} 원</p>
+                        <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                       </div>
                       <small class="text-muted">{{ item.pub_date }}</small>
                     </div>
@@ -95,7 +96,11 @@
               <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
                   <div class="card-body">
-                    <img src="{{ item.images.url }}" alt="">
+                    {% if item.images %}
+                      <img src="{{ item.images.url }}" alt="" class="img-thumb" style="max-width: 250px; height: 225px;">
+                    {% else %}
+                      <img src="" alt="" class="img-thumb">
+                    {% endif %}
                     <p class="card-text"><strong>{{ item.title }}</strong></p>
                     <p class="card-text-body">{{ item.body }}</p>
                     <div class="d-flex justify-content-between align-items-center">
