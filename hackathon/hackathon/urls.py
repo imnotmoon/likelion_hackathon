@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import home.views
+import board.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home.views.home, name='home'),
-    path('accounts/',include('accounts.urls'))
+    path('accounts/',include('accounts.urls')),
+    path('board/<str:category>/', board.views.board, name='board')     # coded by moon
 ]
