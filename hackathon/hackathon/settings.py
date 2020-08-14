@@ -25,6 +25,10 @@ SECRET_KEY = ')&%zozwfr4047(lfjjmfuk7%7(t)k!+)i^36cgb_atyie-g!t5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#이미지 업로드를 위한 처리
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,"media")
+
 ALLOWED_HOSTS = ['virtualenv.eba-5tfhzjan.ap-northeast-2.elasticbeanstalk.com', '127.0.0.1'] 
 
 
@@ -32,6 +36,8 @@ ALLOWED_HOSTS = ['virtualenv.eba-5tfhzjan.ap-northeast-2.elasticbeanstalk.com', 
 
 INSTALLED_APPS = [
     'board.apps.BoardConfig',
+    'bang.apps.BangConfig',
+    'imagekit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'accounts.apps.AccountsConfig',
+    'usedtrading.apps.UsedtradingConfig',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -57,7 +66,7 @@ ROOT_URLCONF = 'hackathon.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['hackathon/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,7 +130,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATICFILES_DIRS = [
+<<<<<<< HEAD
     os.path.join(BASE_DIR,'hackathon','static'),
     os.path.join(BASE_DIR,'home','static')
+=======
+    os.path.join(BASE_DIR,'hackathon','static','media')
+>>>>>>> master
 ]
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/' 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -1,0 +1,39 @@
+<h1>중고나라 페이지</h1>
+
+<a href = "{% url 'usednew' %}"><button>글 쓰기</button></a>
+<div class = "container">
+        {% for usedtrading in articles %}
+        <div class = "card">
+            <div class = "card-body">
+                <br>
+                <h1>글쓴이: {{usedtrading.writer}}</h6>
+                <h2>{{usedtrading.title}}</h1>
+                <h2>{{usedtrading.cost}}</h1>
+                <p>{{usedtrading.pub_date}}</p>
+                {% if usedtrading.images %}
+                    <img src = "{{ usedtrading.image_thumbnail.url }}" >
+                {% endif %}
+                
+                <p>{{usedtrading.summary}}
+                <a href ="" class = "card-link">...more</a>
+                </p>
+            </div>
+            
+        </div>
+        {% endfor %}
+        {% if articles.has_previous %}
+            <a href="?page=1">First</a>
+            <a href="?page={{ articles.previous_page_number }}">Previous</a>
+
+            {% endif %}
+            <span>{{ articles.number }}</span>
+            <span>of</span>
+            <span>{{articles.paginator.num_pages}}</span>
+            
+            {% if articles.has_next %}
+            <a href="?page={{ articles.next_page_number }}">Next</a>
+            <a href="?page={{ articles.paginator.num_pages }}">Last</a>
+
+        {% endif %}
+        <br>
+</div>

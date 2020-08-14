@@ -1,0 +1,32 @@
+<div class="container">
+    <form action="{% url 'create' %}" method = "POST" enctype = "multipart/form-data">
+      {% csrf_token %}
+      {% if user.is_authenticated %}
+      <h2>작성자: </h2>
+      <input type="text" name = "writer" value = "{{user.username}}">
+      <h4>제목: </h4>
+      <input type="text" name="title">
+      <br>
+      <br>
+      <h4>가격: </h4>
+      <input type="text" name ="cost">
+      <h4>본문: </h4>
+      <textarea cols=40 rows=10 name="body"></textarea>
+      <br>
+      <br>
+      <h4>첨부 사진</h4>
+      <input type = "file" name = 'images' accept="image/*">
+      <input type = "file" name = 'image2' accept="image/*">
+      <input type = "file" name = 'image3' accept="image/*">
+      <br>
+      <br>
+      <input class="btn btn-dark" type="submit" value="제출하기">
+      <br>
+      {% endif %}
+      
+    </form>
+    
+</div>
+<br>
+  <a href="{% url 'usedhome' %}">돌아가기</a>
+  <br>
