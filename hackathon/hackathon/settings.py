@@ -31,8 +31,9 @@ ALLOWED_HOSTS = ['virtualenv.eba-5tfhzjan.ap-northeast-2.elasticbeanstalk.com', 
 # Application definition
 
 INSTALLED_APPS = [
-    # 'imagekit',
     'board.apps.BoardConfig',
+    'bang.apps.BangConfig',
+    'imagekit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,3 +126,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'hackathon','static')
 ]
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/' 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
