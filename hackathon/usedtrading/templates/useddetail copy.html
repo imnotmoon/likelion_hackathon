@@ -1,0 +1,23 @@
+<br>
+    <h5>작성자 : {{usedtrading.writer}}</h5>
+    <br>
+    <h1>{{usedtrading.title}}</h1>
+    <p>{{usedtrading.cost}}</p>
+    <p>{{usedtrading.pub_date}}</p>
+    <p>{{usedtrading.body}}</p>
+    <br>
+    {% if usedtrading.images %}
+        <img src = "{{ usedtrading.images.url }}" width ="400" height = "400">
+    {% endif %}
+    {% if usedtrading.image2 %}
+        <img src = "{{ usedtrading.image2.url }}" width ="400" height = "400">
+    {% endif %}
+    {% if usedtrading.image3 %}
+        <img src = "{{ usedtrading.image3.url }}" width ="400" height = "400">
+    {% endif %}
+    <br>
+    <a href="{% url 'usedhome' %}">돌아가기</a>
+    <br>
+    <a href="{% url 'useddelete' usedtrading.id %}">삭제</a>
+    <br>
+    <a href="{% url 'usedupdate' usedtrading.id %}">수정</a>
