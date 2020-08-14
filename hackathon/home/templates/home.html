@@ -6,7 +6,7 @@
     항공대 방방방
 </div>
 {% if user.is_authenticated %}
-    <h2>{{user.username}}님 만나서 반갑습니다!</h2>
+    <h2>{{ user.username }}님 만나서 반갑습니다!</h2>
     <h3>(항공대를 위한 중고나라 와 자취방을 볼 수 있는 사이트 입니다.)</h3>
    <a href="{% url 'logout' %}"><button>로그아웃</button></a>
 {% else %}
