@@ -7,11 +7,11 @@ from imagekit.processors import ResizeToFill
 class Bang(models.Model) :
     writer = models.CharField(max_length=200, default='')
     title = models.CharField(max_length=200)
+    cost = models.CharField(max_length = 100)
     pub_date = models.DateTimeField('date published')
     body = models.TextField()
     roomtype = models.IntegerField()
     posision = models.CharField(max_length=300, null=False, default="")
-    cost = models.TextField()
     images = models.ImageField(blank=True, upload_to="images", null=True)
     image2 = models.ImageField(blank=True, upload_to="images2", null=True)
     image3 = models.ImageField(blank=True, upload_to="images3", null=True)
