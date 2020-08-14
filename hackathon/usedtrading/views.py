@@ -1,11 +1,26 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from django.contrib import messages
 from .models import Usedtrading
+from django.core.paginator import Paginator
 # Create your views here.
 def usedhome(request):
+    usedtrading = Usedtrading.objects
+    
+    #Blog를 쿼리셋으로 가져온다.
+    blogs_list = Usedtrading.objects.all()
+    
+    #가져온 걸 1개씩 잘라 페이지를 만든다.
+    paginator = Paginator(blogs_list,5)
 
-    return render(request,'usedhome.html')
+    #실제로 페이지에 들어갈 내용을 GET.get으로 가져옴
+    page = request.GET.get('page')
+
+    #그걸 이제 get_page로써 페이지를 뿌릴 것임.
+    articles = paginator.get_page(page)
+
+    return render(request,'usedhome.html',{'usedtrading': usedtrading, 'articles':articles})
+
 
 def usednew(request):
     return render(request, 'usednew.html')

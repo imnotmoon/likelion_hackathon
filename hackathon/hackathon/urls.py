@@ -17,24 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-<<<<<<< HEAD
 import home.views
 import board.views
-=======
-
-import home.views
 import usedtrading.views
->>>>>>> strike
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',include('home.urls')),
     path('',home.views.home, name='home'),
     path('accounts/',include('accounts.urls')),
-<<<<<<< HEAD
     path('board/<str:category>/', board.views.board, name='board'),     # coded by moon
     # path('usedtrading/',include('usedtrading.urls')),
-=======
     path('usedtrading/',include('usedtrading.urls')),
->>>>>>> strike
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

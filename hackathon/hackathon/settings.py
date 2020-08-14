@@ -47,8 +47,6 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'accounts.apps.AccountsConfig',
     'usedtrading.apps.UsedtradingConfig',
-
-    'imagekit',
     
     
 ]
