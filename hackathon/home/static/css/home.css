@@ -1,12 +1,13 @@
 body{
     margin: 0;
     border: 0;
+    box-sizing: border-box;
+    border: 3px solid green;
+    min-height: 720px;
 }
 
 .container {
-    height: 50em;
-    position: relative;
-    border: 3px solid green;
+    
 }
 
 h1 {
@@ -24,17 +25,22 @@ a{
     text-align: center;
     font-size: 30px;
     position: relative;
+    text-decoration: none;
+    color: black;
 }
 
 .btm_image{
-    width:100px;
-    height:100px;
+    background: white;
+    border:0;
+    outline-color:0;
+    width:200px;
+    height:200px;
 }
 .size{
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 150px;
 }
 #img_btn{
-    width: 100px;
-    height: 100px
+    width: 180px;
+    height: 180px
 }
