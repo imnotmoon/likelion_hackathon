@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    border: 0;
+}
+
+.container {
+    height: 50em;
+    position: relative;
+    border: 3px solid green;
+}
+
+h1 {
+    text-align: center;
+    font-size: 80px;  
+}
+a{
+    display: inline-block;
+}
+
+.account_category{
+    float: right;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    font-size: 30px;
+    position: relative;
+}
+
+.btm_image{
+    width:100px;
+    height:100px;
+}
+.size{
+    width: 80px;
+    height: 80px;
+}
+#img_btn{
+    width: 100px;
+    height: 100px
+}

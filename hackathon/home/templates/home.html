@@ -1,17 +1,30 @@
-<h1>항공대 중고방</h1>
-<div class="">
-    항공대 중고장터
-</div>
-<div class="">
-    항공대 방방방
-</div>
-{% if user.is_authenticated %}
-    <h2>{{ user.username }}님 만나서 반갑습니다!</h2>
-    <h3>(항공대를 위한 중고나라 와 자취방을 볼 수 있는 사이트 입니다.)</h3>
-   <a href="{% url 'logout' %}"><button>로그아웃</button></a>
-{% else %}
-    <a href="{% url 'login' %}"><button>로그인</button></a>
-    <br>
-    <br>
-    <a href="{% url 'signup' %}"><button>회원가입</button></a>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>항공대 중고방</title>
+</head>
+<body>
+    <div class='container'>
+        <h1>항공대 중고방</h1>
+        {% if user.is_authenticated %}
+        <h2>{{ user.username }}님 만나서 반갑습니다!</h2>
+        <h3>(항공대를 위한 중고나라 와 자취방을 볼 수 있는 사이트 입니다.)</h3>
+        <a href="{% url 'logout' %}" class='logout'><button>로그아웃</button></a>
+        {% else %}
+            <a href="{% url 'login' %}" class='account_category'>로그인</a>
+            <a href="{% url 'signup' %}" class='account_category'>회원가입</a>  
+        {% endif %}   
+        <br>
+        <br>
+        <div align='center'>
+            <button type="button" class="btm_image" id="img_btn"><img src="{%static '/material.png'%}" class='size'></button>
+            <button type="button" class="btm_image" id="img_btn"><img src="{%static '/room.png'%}" class='size'></button>
+        </div>
+    </div>
+    
+</body>
+</html>
