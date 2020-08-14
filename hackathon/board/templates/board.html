@@ -16,7 +16,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">About</h4>
+            <h4 class="text-white">항공대학교 </h4>
             <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
           </div>
           <div class="col-sm-4 offset-md-1 py-4">
@@ -48,8 +48,12 @@
 
     <section class="jumbotron text-center">
       <div class="container">
-        <h1>Album example</h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+        {% if category == 'usedtrading' %}
+          <h1>항공대학교 중고장터</h1>
+        {% elif category == 'bang' %}
+          <h1>항공대학교 부동산</h1>
+        {% endif %}
+        <p class="lead text-muted">LIKELION HACKATHON</p>
         <p>
           <a href="#" class="btn btn-primary my-2">Main call to action</a>
           <a href="#" class="btn btn-secondary my-2">Secondary action</a>
@@ -61,28 +65,17 @@
       <div class="container">
 
         <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <svg>width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail"</svg>
-              <div class="card-body">
-                <p class="card-text"><strong>title</strong></p>
-                <p class="card-text-body">description</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">8월 14일</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          {% if category == 'secondhand' %}
+          {% if category == 'usedtrading' %}
             <!-- 중고 -->
             {% for item in items %}
               <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
                   <div class="card-body">
+                    {% if item.images %}
+                      <img src="{{ item.images.url }}" alt="" class="img-thumb" style="max-width: 250px; height: 225px;">
+                    {% else %}
+                      <img src="" alt="" class="img-thumb">
+                    {% endif %}
                     <p class="card-text"><strong>{{ item.title }}</strong></p>
                     <p class="card-text-body">{{ item.body }}</p>
                     <div class="d-flex justify-content-between align-items-center">
@@ -90,18 +83,19 @@
                         <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                         <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                       </div>
-                      <small class="text-muted">{{ item.pubdate }}</small>
+                      <small class="text-muted">{{ item.pub_date }}</small>
                     </div>
                   </div>
                 </div>
               </div>
             {% endfor %}
-          {% else %}
+          {% elif category == 'bang' %}
             <!-- 방 -->
             {% for item in items %}
               <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
                   <div class="card-body">
+                    <img src="{{ item.images.url }}" alt="">
                     <p class="card-text"><strong>{{ item.title }}</strong></p>
                     <p class="card-text-body">{{ item.body }}</p>
                     <div class="d-flex justify-content-between align-items-center">
@@ -109,7 +103,7 @@
                         <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                         <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                       </div>
-                      <small class="text-muted">{{ item.pubdate }}</small>
+                      <small class="text-muted">{{ item.pub_date }}</small>
                     </div>
                   </div>
                 </div>
