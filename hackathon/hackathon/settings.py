@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['virtualenv.eba-5tfhzjan.ap-northeast-2.elasticbeanstalk.com', 
 # Application definition
 
 INSTALLED_APPS = [
+    # 'imagekit',
     'board.apps.BoardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
